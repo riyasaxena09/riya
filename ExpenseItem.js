@@ -1,15 +1,21 @@
 import './Expense.css';
-function ex(props){
-  
+import Card from './card';
+import ExpenseDate from './ExpenseDate';
+
+function ExpenseItem(props){
+function clickHandler(){
+    console.log("clikc");
+ } 
     return( 
-        <div className='expense-item'>
-   <div>{props.date.toISOString()}</div>
+        <Card className='expense-item'>
+  <ExpenseDate date={props.date}></ExpenseDate>
    <div className='expense-item__description'>
-    <h2>{props.title}</h2>
-<div>{props.locationofexpenditure}</div>
-    <div className='expense-item__price'>${props.amount}</div>
+    <div className='expense-item h2'>{props.title}</div>
+<div className='expense-item__price'>${props.amount}</div>
+
    </div>
-    </div>
+   <button onClick={clickHandler}>Delete Expense</button>
+   </Card>
     );
 }
-export default ex;
+export default ExpenseItem;
